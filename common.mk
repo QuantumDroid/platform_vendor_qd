@@ -86,6 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Telephony packages
 PRODUCT_PACKAGES += \
+    messaging \
     CellBroadcastReceiver \
     messaging \
     Stk
