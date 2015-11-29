@@ -52,6 +52,7 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+    Browser2 \
     libemoji \
     libsepol \
     mke2fs \
