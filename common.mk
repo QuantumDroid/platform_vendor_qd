@@ -16,12 +16,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
-# Backup Tool
-PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/qd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/qd/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
-    vendor/qd/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
