@@ -109,6 +109,18 @@ PRODUCT_PACKAGE_OVERLAYS += \
 QD_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += ro.qd.version=$(QD_VERSION)
 
+# Proprietary latinime libs needed for Keyboard swyping
+ifneq ($(filter arm64,$(TARGET_ARCH)),)
+PRODUCT_COPY_FILES += \
+    vendor/qd/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+else
+PRODUCT_COPY_FILES += \
+    vendor/qd/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
+
+# by default, do not update the recovery with system updates
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
+
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
