@@ -89,7 +89,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     messaging \
-    Stk
+    Stk \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # Include librsjni explicitly to workaround GMS issue
 PRODUCT_PACKAGES += \
