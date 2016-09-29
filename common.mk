@@ -18,28 +18,28 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
-    vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/qd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/qd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/qd/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
+    vendor/qd/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/qd/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/qd/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/aosp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/aosp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/qd/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/qd/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/qd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.qd.rc
+    vendor/qd/prebuilt/common/etc/init.local.rc:root/init.local.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -87,7 +87,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Telephony packages
 PRODUCT_PACKAGES += \
-    messaging \
     CellBroadcastReceiver \
     messaging \
     Stk
@@ -98,12 +97,12 @@ PRODUCT_PACKAGES += \
 
 # World APN list
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/qd/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Overlays & Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += \
-	vendor/aosp/overlay/common \
-	vendor/aosp/overlay/dictionaries
+	vendor/qd/overlay/common \
+	vendor/qd/overlay/dictionaries
 
 # QuantumDroid Version
 QD_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
