@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES += \
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/etc/init.local.rc:root/init.local.rc
+    vendor/qd/prebuilt/common/etc/init.local.rc:root/init.qd.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
