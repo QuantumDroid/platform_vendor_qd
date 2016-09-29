@@ -103,9 +103,9 @@ PRODUCT_PACKAGE_OVERLAYS += \
 	vendor/aosp/overlay/common \
 	vendor/aosp/overlay/dictionaries
 
-# F-AOSP Version
-FAOSP_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
-PRODUCT_PROPERTY_OVERRIDES += ro.faosp.version=$(FAOSP_VERSION)
+# QuantumDroid Version
+QD_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
+PRODUCT_PROPERTY_OVERRIDES += ro.qd.version=$(QD_VERSION)
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
