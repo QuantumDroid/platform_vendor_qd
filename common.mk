@@ -109,9 +109,11 @@ PRODUCT_PACKAGE_OVERLAYS += \
 	vendor/qd/overlay/dictionaries
 
 # QuantumDroid Version
-QD_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
-PRODUCT_PROPERTY_OVERRIDES += ro.qd.version=$(QD_VERSION)
-
+QD_VERSION := $(TARGET_DEVICE)-V1.0-Alpha
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.mod.version=$(QD_VERSION) \
+	ro.qd.version=$(QD_VERSION)
+	
 # Proprietary latinime libs needed for Keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
 PRODUCT_COPY_FILES += \
