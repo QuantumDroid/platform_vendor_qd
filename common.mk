@@ -74,6 +74,7 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
+    su \
     Terminal
 
 # Stagefright FFMPEG plugin
@@ -89,6 +90,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Telephony packages
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
+    libphonenumbergoogle \
     messaging \
     Stk \
     telephony-ext
