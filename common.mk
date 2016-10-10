@@ -160,7 +160,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # QuantumDroid Version
-QD_VERSION := $(TARGET_DEVICE)-V1.0-Alpha
+QD_VERSION := QuantumDroid-Beta-V1.0
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.mod.version=$(QD_VERSION) \
