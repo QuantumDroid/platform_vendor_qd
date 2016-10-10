@@ -13,6 +13,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
+# Default notification/alarm sounds
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.alarm_alert=Hassium.ogg
+
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
@@ -75,8 +79,33 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
-    su \
     Terminal
+
+# These packages are excluded from user builds
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    procmem \
+    procrank \
+    su
+endif
+
+# File Manager
+PRODUCT_PACKAGES += \
+    CMFileManager
+
+# Openssh
+PRODUCT_PACKAGES += \
+    scp \
+    sftp \
+    ssh \
+    sshd \
+    sshd_config \
+    ssh-keygen \
+    start-ssh
+
+# Exchange support
+PRODUCT_PACKAGES += \
+    Exchange2
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
@@ -107,18 +136,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qd/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-# Overlays & Include LatinIME dictionaries
+# Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
-	vendor/qd/overlay/common \
-	vendor/qd/overlay/dictionaries
+    vendor/qd/overlay/common
 
-# QuantumDroid Version
-QD_VERSION := $(TARGET_DEVICE)-V1.0-Alpha
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.mod.version=$(QD_VERSION) \
-	ro.qd.version=$(QD_VERSION)
-	
-# Proprietary latinime libs needed for Keyboard swyping
+# LatinIME...
+
+# Build LatineIME
+PRODUCT_PACKAGES += \
+    LatinIME
+
+# Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/qd/overlay/dictionaries
+
+# Proprietary LatinIME libs needed for keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
 PRODUCT_COPY_FILES += \
     vendor/qd/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
@@ -127,7 +159,14 @@ PRODUCT_COPY_FILES += \
     vendor/qd/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
 
-# by default, do not update the recovery with system updates
+# QuantumDroid Version
+QD_VERSION := $(TARGET_DEVICE)-V1.0-Alpha
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.mod.version=$(QD_VERSION) \
+	ro.qd.version=$(QD_VERSION)
+
+# By default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
