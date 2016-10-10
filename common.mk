@@ -81,6 +81,10 @@ PRODUCT_PACKAGES += \
     strace \
     Terminal
 
+# Snapdragon Music Player
+PRODUCT_PACKAGES += \
+    SnapdragonMusic
+
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
