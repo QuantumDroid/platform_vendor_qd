@@ -58,7 +58,6 @@ PRODUCT_PACKAGES += \
     BluetoothExt \
     Browser \
     Development \
-    MusicFX \
     libemoji \
     libsepol \
     mke2fs \
@@ -81,10 +80,6 @@ PRODUCT_PACKAGES += \
     strace \
     Terminal
 
-# Snapdragon Music Player
-PRODUCT_PACKAGES += \
-    SnapdragonMusic
-
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
@@ -92,10 +87,6 @@ PRODUCT_PACKAGES += \
     procrank \
     su
 endif
-
-# File Manager
-PRODUCT_PACKAGES += \
-    CMFileManager
 
 # Openssh
 PRODUCT_PACKAGES += \
@@ -145,8 +136,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/qd/overlay/common
 
-# LatinIME...
-
 # Build LatineIME
 PRODUCT_PACKAGES += \
     LatinIME
@@ -178,5 +167,3 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
-
-$(call inherit-product-if-exists, vendor/extra/product.mk)
